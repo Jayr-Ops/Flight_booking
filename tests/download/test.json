@@ -1,0 +1,13 @@
+{
+  "name": "Jay Rathod",
+  "email": "jay@example.com",
+  "role": "QA Engineer",
+  "experience": 5,
+  "skills": [
+    "Manual Testing",
+    "Playwright",
+    "JavaScript",
+    "API Testing"
+  ],
+  "isActive": true
+}

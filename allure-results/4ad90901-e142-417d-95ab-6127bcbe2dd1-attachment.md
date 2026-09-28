@@ -1,0 +1,34 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: first_test\End-to-End.spec.js >> Find flight
+- Location: tests\first_test\End-to-End.spec.js:6:1
+
+# Error details
+
+```
+ReferenceError: page is not defined
+```
+
+# Test source
+
+```ts
+  1  | const{test,expect} = require('../../Fixtures/baseFixtures')
+  2  | require('../../hooks/hooks')
+  3  | const Jsonreader = require('../../Util/JsonReader')
+  4  | const cities = Jsonreader.passenger_details()
+  5  | 
+  6  | test('Find flight',async({loginPage1,choose_flight1,checkout_page1})=>{
+  7  |     await loginPage1.find(cities.SourceCities.Paris, cities.DestinationCities.London)
+  8  |     await choose_flight1.select_flight()
+  9  |     await checkout_page1.final_Checkout()
+  10 |     await checkout_page1.submit()
+> 11 |     await page.pause()
+     |     ^ ReferenceError: page is not defined
+  12 | })
+```

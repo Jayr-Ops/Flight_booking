@@ -1,0 +1,65 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: first_test\End-to-End.spec.js >> submit
+- Location: tests\first_test\End-to-End.spec.js:22:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('[type="submit"]')
+
+```
+
+# Test source
+
+```ts
+  1  | exports.checkout_page = class checkout_page{
+  2  |     constructor(page){
+  3  |         this.page=page
+  4  |         this.Name=page.getByPlaceholder('First Last')
+  5  |         this.Address=page.getByPlaceholder('123 Main St.')
+  6  |         this.City=page.getByPlaceholder('Anytown')
+  7  |         this.State=page.getByPlaceholder('State')
+  8  |         this.zipcode=page.getByPlaceholder('12345')
+  9  |         this.cardtype=page.locator('#cardType')
+  10 |         this.card_number=page.getByPlaceholder('Credit Card Number')
+  11 |         this.Month=page.getByPlaceholder('Month')
+  12 |         this.Year=page.getByPlaceholder('Year')
+  13 |         this.Name_on_card=page.getByPlaceholder('John Smith')
+  14 |         this.Purchase=page.locator('[type="submit"]')
+  15 |     }
+  16 | 
+  17 |     async final_Checkout(){
+  18 |         await this.Name.fill('Abc Xyz')
+  19 |         await this.Address.fill('Xyz Streets')
+  20 |         await this.City.fill('NY')
+  21 |         await this.State.fill('NY')
+  22 |         await this.zipcode.fill('45HGG9')
+  23 |         await this.cardtype.selectOption('Visa')
+  24 |         await this.card_number.fill('123 456 789')
+  25 |         await this.Month.fill('11')
+  26 |         await this.Year.fill('2028')
+  27 |         await this.Name_on_card('Abc Xyz')
+  28 |     }
+  29 | 
+  30 |     async submit(){
+> 31 |         await this.Purchase.click()
+     |                             ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  32 |     }
+  33 | 
+  34 | }
+  35 | 
+  36 | 
+```

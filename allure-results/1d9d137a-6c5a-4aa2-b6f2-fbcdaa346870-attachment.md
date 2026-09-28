@@ -1,0 +1,95 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: first_test\End-to-End.spec.js >> Find flight
+- Location: tests\first_test\End-to-End.spec.js:7:1
+
+# Error details
+
+```
+TypeError: Cannot read properties of undefined (reading 'locator')
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e4]:
+    - link "Travel The World" [ref=f1e5] [cursor=pointer]:
+      - /url: index.php
+    - link "home" [ref=f1e6] [cursor=pointer]:
+      - /url: home
+  - generic [ref=f1e7]:
+    - heading "Flights from Paris to London:" [level=3] [ref=f1e8]
+    - table [ref=f1e9]:
+      - rowgroup [ref=f1e10]:
+        - row [ref=f1e11]:
+          - columnheader "Choose" [ref=f1e12]
+          - 'columnheader "Flight #" [ref=f1e13]'
+          - columnheader "Airline" [ref=f1e14]
+          - 'columnheader "Departs: Paris" [ref=f1e15]'
+          - 'columnheader "Arrives: London" [ref=f1e16]'
+          - columnheader "Price" [ref=f1e17]
+      - rowgroup [ref=f1e18]:
+        - row [ref=f1e19]:
+          - cell [ref=f1e20]:
+            - button "Choose This Flight" [ref=f1e21] [cursor=pointer]
+          - cell "43" [ref=f1e22]
+          - cell "Virgin America" [ref=f1e23]
+          - cell "1:43 AM" [ref=f1e24]
+          - cell "9:45 PM" [ref=f1e25]
+          - cell "$472.56" [ref=f1e26]
+        - row [ref=f1e27]:
+          - cell [ref=f1e28]:
+            - button "Choose This Flight" [ref=f1e29] [cursor=pointer]
+          - cell "234" [ref=f1e30]
+          - cell "United Airlines" [ref=f1e31]
+          - cell "7:43 AM" [ref=f1e32]
+          - cell "10:45 PM" [ref=f1e33]
+          - cell "$432.98" [ref=f1e34]
+        - row [ref=f1e35]:
+          - cell [ref=f1e36]:
+            - button "Choose This Flight" [ref=f1e37] [cursor=pointer]
+          - cell "9696" [ref=f1e38]
+          - cell "Aer Lingus" [ref=f1e39]
+          - cell "5:27 AM" [ref=f1e40]
+          - cell "8:22 PM" [ref=f1e41]
+          - cell "$200.98" [ref=f1e42]
+        - row [ref=f1e43]:
+          - cell [ref=f1e44]:
+            - button "Choose This Flight" [ref=f1e45] [cursor=pointer]
+          - cell "12" [ref=f1e46]
+          - cell "Virgin America" [ref=f1e47]
+          - cell "11:23 AM" [ref=f1e48]
+          - cell "1:45 PM" [ref=f1e49]
+          - cell "$765.32" [ref=f1e50]
+        - row [ref=f1e51]:
+          - cell [ref=f1e52]:
+            - button "Choose This Flight" [ref=f1e53] [cursor=pointer]
+          - cell "4346" [ref=f1e54]
+          - cell "Lufthansa" [ref=f1e55]
+          - cell "1:45 AM" [ref=f1e56]
+          - cell "8:34 PM" [ref=f1e57]
+          - cell "$233.98" [ref=f1e58]
+```
+
+# Test source
+
+```ts
+  1  | exports.choose_flight = class choose_flight{
+  2  |     constructor(page){
+  3  |         this.page=page;
+> 4  |         this.choose_this_flight = page.locator('input[type="submit"]').nth(0)
+     |                                        ^ TypeError: Cannot read properties of undefined (reading 'locator')
+  5  |     }
+  6  | 
+  7  |     async select_flight(){
+  8  |         await this.choose_this_flight.click()
+  9  |     }
+  10 | }
+```

@@ -1,0 +1,2 @@
+Test Info: first_test\groups.spec.js > Static Web Table Tests > last student cource
+Mobile Testing

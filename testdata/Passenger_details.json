@@ -1,0 +1,36 @@
+{
+    "SourceCities":{
+        "Paris" : "Paris",
+        "Philadelphia" : "Philadelphia",
+        "Boston" : "Boston",
+        "Portland" : "Portland",
+        "San Diego" : "San Diego",
+        "Mexico City" : "Mexico City",
+        "São Paolo" : "São Paolo"
+    },
+    "DestinationCities" : {
+        "Buenos Aires" : "Buenos Aires",
+        "Rome" : "Rome",
+        "London" : "London",
+        "Berlin" : "Berlin",
+        "New York" : "New York",
+        "Dublin" : "Dublin",
+        "Cairo" : "Cairo"
+    },
+    "Purchase_flight_form":{
+        "Name" : "Xyz Abc",
+        "Address" : "ZHY Street",
+        "City" : "NY",
+        "State" : "New York",
+        "Zip_Code" : "123456",
+        "Card_Type" : {
+            "Card1" : "Visa",
+            "Card2" : "American Express",
+            "Card3" : "Diner's Club"
+        },
+        "CC_Number": "123 456 789",
+        "Month" : "11",
+        "Year" : "2028",
+        "Buyer_Name" : "Jack Reacher"
+    }
+}
